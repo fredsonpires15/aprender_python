@@ -1,0 +1,8 @@
+nome = str(input("Digite o seu nome : ")).strip()
+p = int(input("Diga a que posição que pretendes:"))
+print("Analizando o seu nome...........")
+print("Com todas as letras maiúsculas fica: {}".format(nome.upper()))
+print("com todas as letras minusculas fica: {}".format(nome.lower()))
+print("A frase tem {} letras sem considerar espaços ".format(len(nome) - nome.count(" ")))
+separa = nome.split()
+print("O seu {}  nome é {} tem {} letras".format(p, separa[p], len(separa[p])))

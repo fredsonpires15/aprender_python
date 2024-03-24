@@ -1,0 +1,6 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>_imgs/password.png</file>
+    <file>_imgs/user.png</file>
+  </qresource>
+</RCC>

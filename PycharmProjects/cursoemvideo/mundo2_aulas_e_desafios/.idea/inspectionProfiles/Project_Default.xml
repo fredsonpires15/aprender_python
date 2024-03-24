@@ -1,0 +1,27 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyPep8Inspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="E741" />
+          <option value="E501" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnboundLocalVariableInspection" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="float.split" />
+          <option value="desaf31_aumentos_multiplos.aum" />
+          <option value="int.__getitem__" />
+          <option value="e_desaf52_analisador_completo.mulher" />
+          <option value="e_desaf52_analisador_completo.feminino" />
+          <option value="e_desaf52_analisador_completo.masculino" />
+          <option value="str.sprit" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

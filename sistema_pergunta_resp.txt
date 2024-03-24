@@ -1,0 +1,3 @@
+RECORD:
+Nome: Fred 
+Ponto: 10.0

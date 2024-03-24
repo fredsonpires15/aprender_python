@@ -1,0 +1,3 @@
+RECORD:
+Nome: Fredson 
+Ponto: 10.0

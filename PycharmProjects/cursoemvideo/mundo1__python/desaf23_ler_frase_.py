@@ -1,0 +1,5 @@
+fra = str(input("diga uma frase qualquer:")).strip()
+fr = fra.upper()
+print("A letra (A) repete {} vez(es)".format(fr.count("A")))
+print("Aparece pela 1ª vez na posição : {}".format(fr.find("A") + 1))
+print(" E aparece pela última vez na posição: {}".format(fr.rfind("A")))
