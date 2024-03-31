@@ -1,0 +1,16 @@
+Error: outra Coisa - LogFileMixin
+
+Success: Que bom!! - LogFileMixin
+
+Error: outra Coisa - LogFileMixin
+Success: Que bom!! - LogFileMixin
+Error: outra Coisa - LogFileMixin
+Success: Que bom!! - LogFileMixin
+Success: Galaxy s esté ligado - Smartphone
+Error: iphone esté desligado - Smartphone
+Success: Galaxy s esté ligado - Smartphone
+Error: iphone esté desligado - Smartphone
+Success: Galaxy s está ligado - Smartphone
+Error: iphone esté desligado - Smartphone
+Success: Galaxy s esta ligado - Smartphone
+Error: iphone esta desligado - Smartphone
