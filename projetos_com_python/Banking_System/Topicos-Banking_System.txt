@@ -1,0 +1,30 @@
+Este projecto tem objectivo aplicar os conceitos que você tenho aprendido. Vou dar uma visão geral de como  vou abordar cada um dos requisitos do projeto.
+
+Cadastro de Clientes:
+    -> Criar uma classe para representar um cliente, com atributos como:
+       » nome, CPF, endereço, etc.
+       » Tenho de implementar funções para permitir que novos clientes se cadastrem no sistema, fornecendo suas informações pessoais.
+
+
+Gestão de Contas:
+    -> Criar uma classe para representar uma conta bancária, com atributos como número da conta, tipo de conta, saldo, etc.
+        » implementar funcionalidades para: 
+             .criar novas contas, 
+             .vincular contas a clientes  
+             .consultar informações das contas.
+
+Autenticação e Segurança:
+    -> Implementar um sistema de autenticação simples, onde os clientes podem fazer: 
+            .Login usando um nome de usuário e senha.
+            .Certificar de que as senhas são armazenadas de forma segura, por exemplo, utilizando técnicas de hash.
+
+
+Transações Financeiras:
+    ->  Implementar funções para permitir que os clientes realizem transações como: 
+            .depósitos, 
+            .saques e 
+            .transferências entre contas.
+        » Verificar se as transações são válidas (por exemplo, se há saldo suficiente na conta).
+
+Gestão de Saldo:
+    -> Atualizar o saldo da conta após cada transação e permita que os clientes consultem seus saldos.
