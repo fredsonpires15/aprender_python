@@ -28,7 +28,7 @@ while True:
         sair = str(input('Quer sair? [Ss/Nn]: ')).upper()
         if sair in 'SN':
             break
-    if sair.upper() == 'N':
+    if sair.upper() == 'S':
         break
 media = soma_idade/pessoas_cadastradas
 print(f'No total foram cadastradas {pessoas_cadastradas} pessoas')
@@ -40,8 +40,8 @@ for p in lista:
     if p['idade'] >= media:
         print(' ')
         for k,v in p.items():
-            print(f'{k}={v} ', end=" ")
-        print()
+            print(f'{v} ', end=" ")
+        
 
 print()
 print()

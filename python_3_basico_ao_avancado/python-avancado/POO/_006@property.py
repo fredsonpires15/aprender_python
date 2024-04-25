@@ -23,7 +23,7 @@ class Caneta:
         return self.cor_tinta """
     @property
     def cor(self):
-        print('property')
+        #print('property')
         return self.cor_tinta
     
     @property

@@ -14,6 +14,7 @@ class Cliente:
 
     def inserir_endereco(self, rua, numero):
         self.enderecos.append(Endereco(rua, numero))
+        return self.enderecos
 
     def listar_endereco(self):
         for endereco in self.enderecos:
@@ -28,7 +29,6 @@ class Endereco:
 cliente1 = Cliente('Paulo')
 cliente1.inserir_endereco('Rua Cidade de praia', 5)
 cliente1.inserir_endereco('Av. Heróris de Ultramar', 35)
-
 cliente1.listar_endereco()
 
 
