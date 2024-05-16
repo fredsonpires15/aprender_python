@@ -7,7 +7,6 @@ class Validar_NIF():
     def __init__(self):
         self.rest_divisao1 = None
         self.nif_criado_pelo_comp = None
-        self.setupUi(self)
         self.contador = 9
         self.somar = 0
         self.oito_digitos = ''
@@ -39,8 +38,8 @@ class Validar_NIF():
         nif_criado_pelo_comp = f"{oito_digitos}{rest_divisao1}"
 
         self.nif_criado_pelo_comp = f"{self.oito_digitos}{self.rest_divisao1}"
-        self.nif.setText(nif_criado_pelo_comp)
-        print(nif_criado_pelo_comp)
+        
+        return self.nif_criado_pelo_comp
 
     def gerrar_cpf(self):
         import random
@@ -77,14 +76,17 @@ class Validar_NIF():
         print(cpf_criado_pelo_comp)
 
         self.cpf_criado_pelo_comp = f"{nove_digitos}{rest_divisao1}{rest_divisao2}"
-        self.cfc.setText(self.cpf_criado_pelo_comp)
+        return self.cpf_criado_pelo_comp
 
     def validaar(self):
         if self.cpf_criado_pelo_comp == self.cfc:
             print('CFC é Valido')
-            self.validar.setText('CPF é valido')
+            return self.validar.setText('CPF é valido')
         else:
-            self.validar.setText(f'CPF é inválido')
+            return self.validar.setText(f'CPF é inválido')
 
 
+nif = Validar_NIF()
+
+print(nif)
 

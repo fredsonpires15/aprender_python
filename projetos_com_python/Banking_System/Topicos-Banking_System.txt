@@ -2,8 +2,42 @@ Este projecto tem objectivo aplicar os conceitos que você tenho aprendido. Vou 
 
 Cadastro de Clientes:
     -> Criar uma classe para representar um cliente, com atributos como:
-       » nome, CPF, endereço, etc.
+       » nome, nºidentificação, E-mail, telemóvel, NIF,país, endereço, codigo-postal,cidade,etc.
        » Tenho de implementar funções para permitir que novos clientes se cadastrem no sistema, fornecendo suas informações pessoais.
+
+    ---identificação---------------------
+    |                                   |
+    |                 Nome:             |
+    |                 Sexo:             |
+    |Identificação [PC/TR]:             |
+    |      Nºidentificação:             |
+    |     Data de validade:             |
+    |                  NIF:             |
+    |         Estado Civil:             |
+    -------------------------------------
+
+    ---Residência------------------------
+    |                                   |
+    |                 País:             |
+    |             Distrito:             |
+    |                  Rua:             |
+    |        Código-Postal:             |
+    -------------------------------------
+
+    ---Naturalidade----------------------
+    |                                   |
+    |     Data de Nascimento:           |
+    |                   País:           |
+    |               Distrito:           |
+    |                Cocelho:           |
+    -------------------------------------
+
+    ---Contacto--------------------------
+    |                                   |
+    |              Telemóvel:           |
+    |                 E-mail:           |
+    -------------------------------------
+
 
 
 Gestão de Contas:
@@ -16,6 +50,7 @@ Gestão de Contas:
 Autenticação e Segurança:
     -> Implementar um sistema de autenticação simples, onde os clientes podem fazer: 
             .Login usando um nome de usuário e senha.
+                - O programa deverá registrar um cliente permitindo que o usuário crie uma senha e faça Login.
             .Certificar de que as senhas são armazenadas de forma segura, por exemplo, utilizando técnicas de hash.
 
 
@@ -28,6 +63,9 @@ Transações Financeiras:
 
 Gestão de Saldo:
     -> Atualizar o saldo da conta após cada transação e permita que os clientes consultem seus saldos.
+
+
+Quando um novo cliente é registrado, automaticamente o programa gerar um IBAN do usuário. 
 
 
 

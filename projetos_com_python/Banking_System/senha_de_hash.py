@@ -13,7 +13,7 @@ class Usuario:
     def hash_senha(self, senha):
         # Concatenando a senha com o salt
         senha_salt = senha + self.salt
-        """ print('Senha_selt: ',senha_salt) """
+        print('Senha_selt: ',senha_salt) 
         # Gerando o hash usando SHA-256
         hash_obj = hashlib.sha256(senha_salt.encode())
         """ print('hash_obj: ',hash_obj) """
@@ -29,12 +29,12 @@ class Usuario:
 
 # Exemplo de uso 
 username = "fulano"
-senha = "123"
+senha = "133"
 
 usuario = Usuario(username, senha)
 
 # Verificando a senha
-senha_correta = usuario.verificar_senha('123')
+senha_correta = usuario.verificar_senha('133')
 #senha_errada = usuario.verificar_senha('234')
 print()
 #print(f'Salt: {usuario.salt} - tem {len(usuario.salt)} caracteres') 

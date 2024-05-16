@@ -33,7 +33,7 @@ while True:
 media = soma_idade/pessoas_cadastradas
 print(f'No total foram cadastradas {pessoas_cadastradas} pessoas')
 print(f'A média da idade é de {media:.2f}') 
-print(f'As cadastras são: {lista_de_mulheres}') 
+print(f'As mulheres cadastras são: {lista_de_mulheres}') 
 print()
 
 for p in lista:
