@@ -28,8 +28,6 @@ Cadastro de Clientes:
     |                                   |
     |     Data de Nascimento:           |
     |                   País:           |
-    |               Distrito:           |
-    |                Cocelho:           |
     -------------------------------------
 
     ---Contacto--------------------------
