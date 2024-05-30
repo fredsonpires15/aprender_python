@@ -1,71 +1,120 @@
 Este projecto tem objectivo aplicar os conceitos que você tenho aprendido. Vou dar uma visão geral de como  vou abordar cada um dos requisitos do projeto.
 
-Cadastro de Clientes:
-    -> Criar uma classe para representar um cliente, com atributos como:
-       » nome, nºidentificação, E-mail, telemóvel, NIF,país, endereço, codigo-postal,cidade,etc.
-       » Tenho de implementar funções para permitir que novos clientes se cadastrem no sistema, fornecendo suas informações pessoais.
+## **Visão Geral do Projeto de Gestão Bancária**
 
-    ---identificação---------------------
-    |                                   |
-    |                 Nome:             |
-    |                 Sexo:             |
-    |Identificação [PC/TR]:             |
-    |      Nºidentificação:             |
-    |     Data de validade:             |
-    |                  NIF:             |
-    |         Estado Civil:             |
-    -------------------------------------
+- Este projeto visa aplicar os conceitos de programação Python para criar um sistema de gestão bancária que inclui cadastro de clientes, gestão de contas, autenticação e segurança, transações financeiras e gestão de saldo.
+    
+    ### **1. Cadastro de Clientes**
+    
+    - **Classe Cliente**
+        - **Atributos**:
+            - Nome
+            - Nº de Identificação
+            - Sexo
+            - Data de Validade
+            - NIF
+            - Estado Civil
+            - País
+            - Distrito
+            - Rua
+            - Código Postal
+            - Data de Nascimento
+            - Telemóvel
+            - E-mail
 
-    ---Residência------------------------
-    |                                   |
-    |                 País:             |
-    |             Distrito:             |
-    |                  Rua:             |
-    |        Código-Postal:             |
-    -------------------------------------
+        - **Funções**: Cadastro de novos clientes com as informações pessoais fornecidas e guardar num banco de dados.
+            - Criar um função chamada **coletar_dados_do_cliente(*self*) que retorna dados do cliente**
+                  
+            - Criar uma função **banco_de_dados(*self*) que guarda todas as dados do cliente num banco de dados**
+            
+            - Criar uma função **validar_cliente(*self*) que entra no banco de dados  e verifica o seguinte: Se o cliente existir , ele diz que o cliente já está cadastrado; Se não, ele adiciona o cliente na banco de dados.**
+                
+    
+    ### **2. Gestão de Contas**
+    
+    - **Classe ContaBancaria**
+        - **Atributos**:
+            - Número da Conta → num_conta
+                
+                
+            - Tipo de Conta → tipo_conta
+                
+                
+            - Saldo → saldo_inicial
+            - Cliente Vinculado → cliente_vinculado
+        - **Funções**:
+            - Criar novas contas
+                
+                **Passos para Criar uma Conta**
+                
+                1. **Obter as informações do cliente**: Certifique-se de que o cliente já esteja cadastrado no sistema.
+                2. **Gerar um número de conta único**: Pode ser gerado automaticamente ou fornecido manualmente.
+                3. **Definir o tipo de conta**: Escolher o tipo de conta desejada (e.g., Poupança, Corrente).
+                4. **Definir o saldo inicial**: Definir o valor inicial a ser depositado.
+                5. **Vincular a conta ao cliente**: Associar a conta ao cliente e adicionar a conta à lista de contas do cliente.
+            - Vincular contas a clientes
+            - Consultar informações das contas
+                ---identificação---------------------
+                |                                   |
+                |                 Nome:             |
+                |                 Sexo:             |
+                |Identificação [PC/TR]:             |
+                |      Nºidentificação:             |
+                |     Data de validade:             |
+                |                  NIF:             |
+                |         Estado Civil:             |
+                -------------------------------------
 
-    ---Naturalidade----------------------
-    |                                   |
-    |     Data de Nascimento:           |
-    |                   País:           |
-    -------------------------------------
+                ---Residência------------------------
+                |                                   |
+                |                 País:             |
+                |             Distrito:             |
+                |                  Rua:             |
+                |        Código-Postal:             |
+                -------------------------------------
 
-    ---Contacto--------------------------
-    |                                   |
-    |              Telemóvel:           |
-    |                 E-mail:           |
-    -------------------------------------
+                ---Naturalidade----------------------
+                |                                   |
+                |     Data de Nascimento:           |
+                |                   País:           |
+                -------------------------------------
 
-
-
-Gestão de Contas:
-    -> Criar uma classe para representar uma conta bancária, com atributos como número da conta, tipo de conta, saldo, etc.
-        » implementar funcionalidades para: 
-             .criar novas contas, 
-             .vincular contas a clientes  
-             .consultar informações das contas.
-
-Autenticação e Segurança:
-    -> Implementar um sistema de autenticação simples, onde os clientes podem fazer: 
-            .Login usando um nome de usuário e senha.
-                - O programa deverá registrar um cliente permitindo que o usuário crie uma senha e faça Login.
-            .Certificar de que as senhas são armazenadas de forma segura, por exemplo, utilizando técnicas de hash.
-
-
-Transações Financeiras:
-    ->  Implementar funções para permitir que os clientes realizem transações como: 
-            .depósitos, 
-            .saques e 
-            .transferências entre contas.
-        » Verificar se as transações são válidas (por exemplo, se há saldo suficiente na conta).
-
-Gestão de Saldo:
-    -> Atualizar o saldo da conta após cada transação e permita que os clientes consultem seus saldos.
-
-
-Quando um novo cliente é registrado, automaticamente o programa gerar um IBAN do usuário. 
-
-
-
-
-
+                ---Contacto--------------------------
+                |                                   |
+                |              Telemóvel:           |
+                |                 E-mail:           |
+                -------------------------------------
+    
+    ### **3. Autenticação e Segurança**
+    
+    - **Funções**:
+        - Registro de clientes permitindo a criação de uma senha
+        - Login usando nome de usuário e senha
+        - Armazenamento seguro de senhas utilizando técnicas de hash
+        
+    
+    ### **4. Transações Financeiras**
+    
+    - **Funções**:
+        - Realizar depósitos
+        - Realizar saques
+        - Realizar transferências entre contas
+        - Verificar se há saldo suficiente para as transações
+    
+    ### **5. Gestão de Saldo**
+    
+    - **Funções**:
+        - Atualizar o saldo da conta após cada transação
+        - Consultar saldos
+    
+    ### **6. Gerar IBAN**
+    
+    - **Função**:
+        - Gerar automaticamente um IBAN ao registrar um novo cliente 
+        
+    
+    ### **7. Validar NIF**
+    
+    - **Função**:
+        - Validar automaticamente o NIF ao registrar um novo cliente
+        

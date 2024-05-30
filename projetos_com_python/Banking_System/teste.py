@@ -1,7 +1,7 @@
 from cadastro_de_cliente import Cliente, CadastrarCliente
 from colorama import Fore, Back, Style
 from validar import validar_usuario
-from estrutura import menu_login, menu
+from estrutura import menu_login, menu, dados_cliente
 import os
 
 
@@ -78,46 +78,12 @@ if __name__ == '__main__':
 
                 if  validar_usuario(nome,senha, nome_valido, senha_valida):
                         while True:
-                                
+        
                                 menu()
                                 op = int(input('Opção: ') )
                                 os.system('cls')
                                 if op == 1:
-                                        print(' Mostrar Dados do usuário...')
-                                        print('---identificação---------------------')
-                                        print('|                                   |')
-                                        print('|                 Nome:             |')
-                                        print('|                 Sexo:             |')
-                                        print('|Identificação [PC/TR]:             |')
-                                        print('|      Nºidentificação:             |')
-                                        print('|     Data de validade:             |')
-                                        print('|                  NIF:             |')
-                                        print('|         Estado Civil:             |')
-                                        print('-------------------------------------')
-                                        print('')
-                                        print('---Residência------------------------')
-                                        print('|                                   |')
-                                        print('|                 País:             |')
-                                        print('|             Distrito:             |')
-                                        print('|                  Rua:             |')
-                                        print('|        Código-Postal:             |')
-                                        print('-------------------------------------')
-                                        print('')
-                                        print('---Naturalidade----------------------')
-                                        print('|                                   |')
-                                        print('|     Data de Nascimento:           |')
-                                        print('|                   País:           |')
-                                        print('|               Distrito:           |')
-                                        print('|                    Rua:           |')
-                                        print('-------------------------------------')
-                                        print('')
-                                        print('---Contacto--------------------------')
-                                        print('|                                   |')
-                                        print('|              Telemóvel:           |')
-                                        print('|                 E-mail:           |')
-                                        print('-------------------------------------')
-                                        depositar = input('Montante(€): ')
-                                        os.system('cls')
+                                        dados_cliente()
                                 elif op == 2:
                                     print(' Realizar um deposito...')
                                     depositar = input('Montante(€): ')

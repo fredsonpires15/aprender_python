@@ -146,6 +146,11 @@ class CadastrarCliente(Cliente):
         
         print(" [\033[92m Os dados dos clientes foram salvos com sucesso no arquivo Excel.\033[0m]")
     
+
+
+
+
+    
     """ # verificar se o cliente existe
     def verificar_cliente_exitente(self, nif):
       
