@@ -34,12 +34,8 @@ Este projecto tem objectivo aplicar os conceitos que você tenho aprendido. Vou 
     
     - **Classe ContaBancaria**
         - **Atributos**:
-            - Número da Conta → num_conta
-                
-                
-            - Tipo de Conta → tipo_conta
-                
-                
+            - Número da Conta → num_conta               
+            - Tipo de Conta → tipo_conta                            
             - Saldo → saldo_inicial
             - Cliente Vinculado → cliente_vinculado
         - **Funções**:

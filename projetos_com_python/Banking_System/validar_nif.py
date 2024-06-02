@@ -26,7 +26,7 @@ def check_digit(nif):
 
     return str(11-resto) 
     
-def validar_nif(nif):
+def validar_nif(nif) -> bool:
     """ Validação do número de identificação fiscal
     >> valida_nif('999999990') 
     True
@@ -42,10 +42,14 @@ def validar_nif(nif):
     return  nif[-1] == check_digit(nif[0:8])
 
 
-if __name__ == '__main__': 
+
+
+
+
+""" if __name__ == '__main__': 
     val = validar_nif('308806662')
     if val:
-        print(f'O número é : {val}')
+        print(f'O número é : {val}') """
 
 
 """ import sys
