@@ -135,15 +135,14 @@ class Cliente:
         saldo = float(input('Montante(€): '))
         
 
-
         # Criando um novo cliente
         novo_cliente = Cliente(nome,idade,sexo,identificacao,n_identificacao,data_de_validade,estado_civil, NIF,pais,distrito,rua, codigo_postal, data_de_nasc,pais_de_nasc,telemovel,e_mail, saldo)
 
         # cadastro = CadastrarCliente(nome,idade,sexo,identificacao,n_identificacao,data_de_validade,estado_civil, NIF,pais,distrito,rua, codigo_postal, data_de_nasc,pais_de_nasc,telemovel,e_mail, saldo)
         
-        if not validar_cliente():
-            novo_cliente.banco_de_dados() 
-
+        return novo_cliente
+        
+      
 
     # Criar um função chamada **guardar_dados_do_cliente(*self*) que retorna dados do cliente Guardar as informções do cliente num dicionário
     def guardar_dados_do_cliente(self):
@@ -195,6 +194,7 @@ class Cliente:
     
     # Create a function called 'validar_cliente' that enters the database and checks if the client exists.
     def validar_cliente(self):
+
         """
         
         """
