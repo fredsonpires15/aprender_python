@@ -140,7 +140,7 @@ class Cliente:
 
         # cadastro = CadastrarCliente(nome,idade,sexo,identificacao,n_identificacao,data_de_validade,estado_civil, NIF,pais,distrito,rua, codigo_postal, data_de_nasc,pais_de_nasc,telemovel,e_mail, saldo)
         
-        return novo_cliente
+        return novo_cliente 
         
       
 
