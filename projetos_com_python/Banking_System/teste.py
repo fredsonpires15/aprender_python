@@ -10,4 +10,5 @@ ws = workbook
 sheet_selecionada = book['Sheet1']
 #print(len(sheet_selecionada["A"]))
 
+
     

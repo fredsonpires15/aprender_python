@@ -26,8 +26,11 @@ if __name__ == '__main__':
         if op == 1:
                 Cliente.coletar_dados_Client()
 
-                if Cliente.validar_cliente():
-                      Cliente.banco_de_dados()
+                if Cliente.validar_cliente()== False:
+                    Cliente.banco_de_dados(Cliente)
+
+                else:
+                    Cliente.validar_cliente()
 
                 # Verificando se o cliente já existe e registrando-o se não existe
                 #cadastro.registrar_cliente(novo_cliente)
