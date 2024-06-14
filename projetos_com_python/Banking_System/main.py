@@ -1,11 +1,12 @@
 
-import xlsxwriter as xw
+import xlsxwriter as xw 
 import os
 
 from cadastro_de_cliente import Cliente, CadastrarCliente
 from colorama import Fore, Back, Style
 from validar import validar_usuario
 from estrutura import menu_login, menu, dados_cliente
+from Validar_nif import validar_nif
 import os
 
 
@@ -22,21 +23,26 @@ if __name__ == '__main__':
         menu_login() # fazer login ou cadastro
         op = int(input('Opção: ') )
         os.system('cls')
+        #print(Cliente.coletar_dados_Client().validar_cliente())
 
         if op == 1:
-                Cliente.coletar_dados_Client()
+            Cliente.coletar_dados_Client()
+                
 
-                if Cliente.validar_cliente()== False:
-                    Cliente.banco_de_dados(Cliente)
+            
 
-                else:
-                    Cliente.validar_cliente()
 
-                # Verificando se o cliente já existe e registrando-o se não existe
-                #cadastro.registrar_cliente(novo_cliente)
+            # if Cliente.coletar_dados_Client().validar_cliente()== False:
+            #     Cliente.coletar_dados_Client().banco_de_dados(Cliente)
 
-                # Adicionando o cliente à lista de clientes
-                #listar_clientes.append(novo_cliente.guardar_informacao().copy())
+            # else:
+            #     Cliente.validar_cliente()
+
+            # Verificando se o cliente já existe e registrando-o se não existe
+            #cadastro.registrar_cliente(novo_cliente)
+
+            # Adicionando o cliente à lista de clientes
+            #listar_clientes.append(novo_cliente.guardar_informacao().copy())
 
         elif op == 2:
                 nome = input('Nome do usúario: ')
@@ -46,24 +52,27 @@ if __name__ == '__main__':
                 if  validar_usuario(nome,senha, nome_valido, senha_valida):
                         while True:
         
-                                menu()
-                                op = int(input('Opção: ') )
+                            menu()
+                            op = int(input('Opção: ') )
+                            print()
+                            print()
+                            os.system('cls')
+
+                            if op == 1:
+                                    dados_cliente()
+                            elif op == 2:
+                                print(' Realizar um deposito...')
+                                depositar = input('Montante(€): ')
+                                os.system('cls')    
+                            elif op == 3:
+                                print(' Sacar dinheiro na conta...')
+                                sacar = input('Montante(€): ') 
                                 os.system('cls')
-                                if op == 1:
-                                        dados_cliente()
-                                elif op == 2:
-                                    print(' Realizar um deposito...')
-                                    depositar = input('Montante(€): ')
-                                    os.system('cls')    
-                                elif op == 3:
-                                    print(' Sacar dinheiro na conta...')
-                                    sacar = input('Montante(€): ') 
-                                    os.system('cls')
-                                elif op == 4:
-                                    print(' Fazer uma transferência...')
-                                elif op == 5:
-                                    print(' Saindo da conta...')
-                                    break
+                            elif op == 4:
+                                print(' Fazer uma transferência...')
+                            elif op == 5:
+                                print(' Saindo da conta...')
+                                break
 
                                 
                 else:
@@ -81,9 +90,7 @@ if __name__ == '__main__':
 
 
 print('____________________________________________________________________')
-
-for cliente in listar_clientes:
-        print(cliente)   
+ 
 
 print('____________________________________________________________________')
     

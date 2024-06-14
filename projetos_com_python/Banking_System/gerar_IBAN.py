@@ -35,13 +35,13 @@ def converter_para_numerico(iban):
     return iban_numerico
 
 # Exemplo de uso:
-codigo_pais = "ST"  # Código do país para a Portugal
-banco = "50010517"  # Código do banco
-agencia = "000"
-conta = "123456789"
+# codigo_pais = "ST"  # Código do país para a Portugal
+# banco = "50010517"  # Código do banco
+# agencia = "000"
+# conta = "123456789"
 
-iban = gerar_iban(codigo_pais, banco, agencia, conta)
-print("IBAN gerado:", iban)
+# iban = gerar_iban(codigo_pais, banco, agencia, conta)
+# print("IBAN gerado:", iban)
 
 
 

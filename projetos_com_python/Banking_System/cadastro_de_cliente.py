@@ -40,6 +40,8 @@ class Cliente:
         Returns:
             None
         """
+
+        self._nome = nome
         self._idade = idade
         self._sexo = sexo
         self._identificacao = identificacao
@@ -135,11 +137,20 @@ class Cliente:
         nome = input('Nome: ')
         idade = input('Idade: ')
         sexo = input('Sexo [M/F]: ').upper()
+    
+        while True:
+            NIF = input('NIF: ')
+            # validar NIF
+            if validar_nif(NIF) == True: 
+                break
+            else:
+                print(' NIF inválido! coloque um NIF valido')
+                continue
         identificacao = input('Identificação [PC/T.R]: ')
         n_identificacao = input('Nº de Identificação: ')
         data_de_validade = input('Data de validade: ')
         estado_civil = input('Estado Civil: ')
-        NIF = input('NIF: ')
+
         print('------------------------------------- ') 
 
 
@@ -152,7 +163,8 @@ class Cliente:
 
 
         print('------------Naturalidade------------- ') 
-        data_de_nasc = input('Data de Nascimento:    ')
+        data_de_nasc = input('Data de Nascimento (dd/mm/aaaa):  ')
+        # validar data de nascimento
         pais_de_nasc = input('País: ')
         print('------------------------------------- ') 
 
@@ -170,11 +182,11 @@ class Cliente:
         
 
         # Criando um novo cliente
-        novo_cliente = Cliente(nome,idade,sexo,identificacao,n_identificacao,data_de_validade,estado_civil, NIF,pais,distrito,rua, codigo_postal, data_de_nasc,pais_de_nasc,telemovel,e_mail, saldo)
+        Cliente(nome,idade,sexo,identificacao,n_identificacao,data_de_validade,estado_civil, NIF,pais,distrito,rua, codigo_postal, data_de_nasc,pais_de_nasc,telemovel,e_mail, saldo)
 
         # cadastro = CadastrarCliente(nome,idade,sexo,identificacao,n_identificacao,data_de_validade,estado_civil, NIF,pais,distrito,rua, codigo_postal, data_de_nasc,pais_de_nasc,telemovel,e_mail, saldo)
         
-        return novo_cliente 
+         
         
       
 
@@ -265,28 +277,25 @@ class Cliente:
         print(" [\033[92m Os dados dos clientes foram salvos com sucesso no _arquivo Excel.\033[0m]")
     
     # Create a function called 'validar_cliente' that enters the database and checks if the client exists.
+    
     def validar_cliente(self):
 
-        """
-        
-        """
         sheet_selecionada = self._arquivo['Sheet1']
 
         # validation of data      
-        if self.validaar_nif(): 
-            for row in range(2, len(sheet_selecionada['A']) + 1): # Go through each line in excel
-                name_cell = sheet_selecionada['A%s' % row].value  # percorre a toda linha da coluna "A - Nome"
-                nif_cell = sheet_selecionada['H%s' % row].value   # percorre a toda linha da coluna "H - NIF" 
+        
+        for row in range(2, len(sheet_selecionada['A']) + 1): # Go through each line in excel
+            name_cell = sheet_selecionada['A%s' % row].value  # percorre a toda linha da coluna "A - Nome"
+            nif_cell = sheet_selecionada['H%s' % row].value   # percorre a toda linha da coluna "H - NIF" 
 
-                # If the customer and the NIF exist, he says that the customer is already registered 
-                if name_cell == self.nome() and nif_cell == self.nif(): #  
-                       raise ValueError('O Cliente já está cadastrado.')
-                
-                # if not exist, it return False  
-                else: 
-                    return False        
-        else:
-            raise ValueError('NIF inválido!!')
+            # If the customer and the NIF exist, he says that the customer is already registered 
+            if name_cell == self.nome() and  nif_cell == self.nif(): #  
+                    raise ValueError('O Cliente já está cadastrado.')
+            
+            # if not exist, it return False  
+            else: 
+                return False        
+        
         
         
     
@@ -301,7 +310,7 @@ class Cliente:
             bool: True if the NIF is valid, False otherwise.
         """
         val = validar_nif(self.nif())
-        return val    
+        return val  
     
     # create new accounts
     def create_account(self, client, type_account, initial_balance):
