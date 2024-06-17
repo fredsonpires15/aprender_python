@@ -48,7 +48,7 @@ class Cliente:
         self._n_identificacao = n_identificacao
         self._data_de_validade = data_de_validade
         self._estado_civil = estado_civil
-        self._NIF:str = str(NIF)
+        self._NIF = NIF
         self._pais = pais
         self._distrito = distrito
         self._rua = rua
@@ -84,7 +84,7 @@ class Cliente:
         return self._estado_civil
 
     def nif(self): # retorna um NIF
-        return self._NIF
+        return int(self._NIF)
      
     # ---Dados da Residência------------------------
     def pais(self):
@@ -124,68 +124,9 @@ class Cliente:
         :return: The balance of the account as a float.
         """
     
-    @staticmethod
+    """ @staticmethod
     def coletar_dados_Client():
-        """
-        Collects data for a new client and creates a new instance of the Cliente class.
-        
-        This static method prompts the user to enter various personal identification and contact details for a new client. It then uses this information to create a new instance of the Cliente class. The collected data includes the client's name, age, gender, identification type, identification number, expiration date, marital status, NIF, residence details (country, district, street, postal code), birth details (date, country of birth), contact details (telephone number, email address), and account balance (minimum deposit of 100€).
-        
-        Returns:
-            Cliente: A new instance of the Cliente class with the collected data.
-        """
-        nome = input('Nome: ')
-        idade = input('Idade: ')
-        sexo = input('Sexo [M/F]: ').upper()
-    
-        while True:
-            NIF = input('NIF: ')
-            # validar NIF
-            if validar_nif(NIF) == True: 
-                break
-            else:
-                print(' NIF inválido! coloque um NIF valido')
-                continue
-        identificacao = input('Identificação [PC/T.R]: ')
-        n_identificacao = input('Nº de Identificação: ')
-        data_de_validade = input('Data de validade: ')
-        estado_civil = input('Estado Civil: ')
-
-        print('------------------------------------- ') 
-
-
-        print('-------------Residência---------------') 
-        pais = input('País: ')
-        distrito = input('Distrito: ')
-        rua = input('Rua: ')
-        codigo_postal = input('Código-Postal: ')
-        print('------------------------------------- ') 
-
-
-        print('------------Naturalidade------------- ') 
-        data_de_nasc = input('Data de Nascimento (dd/mm/aaaa):  ')
-        # validar data de nascimento
-        pais_de_nasc = input('País: ')
-        print('------------------------------------- ') 
-
-
-        print('--------------Contacto--------------- ') 
-        telemovel = input('Telemóvel: ')
-        e_mail = input('E-mail: ')
-        print('------------------------------------- ') 
-        
-        os.system('cls')
-        print('------------Abrir Conta-------------- ')
-        
-        print('Para concluir o processo, faça um depósito de no minimo 100€. \n Nota: Depois da abertura da conta o cliente pode poderá sacar o seu dinheiro quando quiser!!  ')
-        saldo = float(input('Montante(€): '))
-        
-
-        # Criando um novo cliente
-        Cliente(nome,idade,sexo,identificacao,n_identificacao,data_de_validade,estado_civil, NIF,pais,distrito,rua, codigo_postal, data_de_nasc,pais_de_nasc,telemovel,e_mail, saldo)
-
-        # cadastro = CadastrarCliente(nome,idade,sexo,identificacao,n_identificacao,data_de_validade,estado_civil, NIF,pais,distrito,rua, codigo_postal, data_de_nasc,pais_de_nasc,telemovel,e_mail, saldo)
-        
+        ... """
          
         
       
@@ -280,21 +221,35 @@ class Cliente:
     
     def validar_cliente(self):
 
-        sheet_selecionada = self._arquivo['Sheet1']
+        # Carregar o arquivo Excel
+        workbook = openpyxl.load_workbook(self._arquivo)
+
+        # Selecionar a planilha desejada
+        sheet_selecionada = workbook.active
+
+        # Definir a função de comparação
+        def cliente_existe(name_cell, nif_cell):
+            return name_cell == self.nome() and (nif_cell) == int(self.nif())
 
         # validation of data      
-        
-        for row in range(2, len(sheet_selecionada['A']) + 1): # Go through each line in excel
+        # Percorrer cada linha na planilha, começando na linha 2 para ignorar o cabeçalho
+        nome_encontrado = False
+        for row in range(2, sheet_selecionada.max_row + 1): # Go through each line in excel
             name_cell = sheet_selecionada['A%s' % row].value  # percorre a toda linha da coluna "A - Nome"
             nif_cell = sheet_selecionada['H%s' % row].value   # percorre a toda linha da coluna "H - NIF" 
 
             # If the customer and the NIF exist, he says that the customer is already registered 
-            if name_cell == self.nome() and  nif_cell == self.nif(): #  
-                    raise ValueError('O Cliente já está cadastrado.')
+            if cliente_existe(name_cell, nif_cell): #  
+                nome_encontrado = True
+                break
             
-            # if not exist, it return False  
-            else: 
-                return False        
+        # if not exist, it return False 
+
+        if nome_encontrado:
+            return True
+        else:
+            return False
+                   
         
         
         
@@ -542,6 +497,459 @@ class CadastrarCliente(Cliente):
             print("Cliente registrado com sucesso!")
         else:
             print("Cliente já existe") """
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

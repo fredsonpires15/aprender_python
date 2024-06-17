@@ -6,7 +6,7 @@ from cadastro_de_cliente import Cliente, CadastrarCliente
 from colorama import Fore, Back, Style
 from validar import validar_usuario
 from estrutura import menu_login, menu, dados_cliente
-from Validar_nif import validar_nif
+from Coletar_Dados import ColetarDados
 import os
 
 
@@ -26,10 +26,21 @@ if __name__ == '__main__':
         #print(Cliente.coletar_dados_Client().validar_cliente())
 
         if op == 1:
-            Cliente.coletar_dados_Client()
-                
-
+            novo_cliente = ColetarDados()
             
+            cliente = novo_cliente.dados_do_cliente()
+
+            validar = cliente.validar_cliente()
+
+            if validar == True:
+                print('O Cliente já foi registrado ')
+                break
+
+            else:
+                print()
+                cliente.banco_de_dados()
+                break
+
 
 
             # if Cliente.coletar_dados_Client().validar_cliente()== False:
