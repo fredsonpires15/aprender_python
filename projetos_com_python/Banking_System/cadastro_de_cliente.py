@@ -59,7 +59,7 @@ class Cliente:
         self._email = e_mail
         self._saldo = saldo
         self._informacao_do_cliente = dict() 
-        self._arquivo = "C:\\Users\\freds\\Desktop\\curso_de_programacao\\aprender_python\\Projetos_com_python\\Banking_System\\Banco_de_Dados.xlsx"
+        #self._arquivo = "C:\\Users\\freds\\Desktop\\curso_de_programacao\\aprender_python\\Projetos_com_python\\Banking_System\\Banco_de_Dados.xlsx"
 
         
     def nome(self):  # retorna um nome
@@ -123,6 +123,7 @@ class Cliente:
 
         :return: The balance of the account as a float.
         """
+        return self._saldo
     
     """ @staticmethod
     def coletar_dados_Client():
@@ -155,6 +156,8 @@ class Cliente:
                     - 'Email' (str): The client's email address.
                     - 'Saldo' (float): The client's account balance.
         """
+
+        
         return dict(
             Nome=self.nome(),
             Idade=self.idade(),
@@ -178,7 +181,7 @@ class Cliente:
     
 
     # Criar uma função **banco_de_dados(*self*) que guarda todas as dados do cliente num banco de dados**
-    def banco_de_dados(self):
+    def banco_de_dados(self, arquivo_excel):
         """
         Saves the data of a client to an Excel file.
 
@@ -198,7 +201,7 @@ class Cliente:
         - "[\033[92m Os dados dos clientes foram salvos com sucesso no _arquivo Excel.\033[0m]" if the data is successfully saved.
         """
         try:
-            df = pd.read_excel(self._arquivo)  # Tenta carregar uma arquivo Excel existente
+            df = pd.read_excel(arquivo_excel)  # Tenta carregar uma arquivo Excel existente
         except FileNotFoundError:
             df = pd.DataFrame(columns=['Nome', 'Idade', 'Sexo', 'Identificação','N_Identificação','Data_de_Validade', 'Estado_Civil', 'NIF', 'País', 'Distrito', 'Rua','Codigo_Postal', 'Data_de_Nasc', 'País_de_Nasc', 'Telemóvel', 'Email', 'Saldo' ])
 
@@ -213,23 +216,24 @@ class Cliente:
         df = pd.concat([df, cliente_df], ignore_index=True)
 
         # Envair os dados para um ficheiro excel
-        df.to_excel(self._arquivo, index=False)
+        df.to_excel(arquivo_excel, index=False)
         
         print(" [\033[92m Os dados dos clientes foram salvos com sucesso no _arquivo Excel.\033[0m]")
     
+
+
     # Create a function called 'validar_cliente' that enters the database and checks if the client exists.
-    
-    def validar_cliente(self):
+    def validar_cliente(self, arquivo_excel):
 
         # Carregar o arquivo Excel
-        workbook = openpyxl.load_workbook(self._arquivo)
+        workbook = openpyxl.load_workbook(arquivo_excel)
 
         # Selecionar a planilha desejada
         sheet_selecionada = workbook.active
 
         # Definir a função de comparação
         def cliente_existe(name_cell, nif_cell):
-            return name_cell == self.nome() and (nif_cell) == int(self.nif())
+            return name_cell == self.nome() and (nif_cell) == int(self._NIF)
 
         # validation of data      
         # Percorrer cada linha na planilha, começando na linha 2 para ignorar o cabeçalho
@@ -245,10 +249,9 @@ class Cliente:
             
         # if not exist, it return False 
 
-        if nome_encontrado:
-            return True
-        else:
-            return False
+        
+        return nome_encontrado
+        
                    
         
         

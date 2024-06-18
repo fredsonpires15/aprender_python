@@ -7,7 +7,7 @@ from openpyxl import workbook
 
 class ColetarDados:
 
-    def dados_do_cliente(self):
+    def dados_do_cliente(self, arquivo_excel):
         print('Insira os seus dados:')
         
         """
@@ -34,31 +34,36 @@ class ColetarDados:
         
 
         # Carregar o arquivo Excel
-        workbook = openpyxl.load_workbook('C:\\Users\\freds\\Desktop\\curso_de_programacao\\aprender_python\\Projetos_com_python\\Banking_System\\Banco_de_Dados.xlsx')
+        workbook = openpyxl.load_workbook(arquivo_excel)
 
         # Selecionar a planilha desejada
         sheet_selecionada = workbook.active
 
         # Definir a função de comparação
-        def cliente_existe(name_cell, nif_cell):
+        def _cliente_existe(name_cell, nif_cell):
             return name_cell == nome and (nif_cell) == int(NIF)
+        
+        def _nif_existe(nif_cell):
+            return (nif_cell) == int(NIF)
 
         # validation of data      
         # Percorrer cada linha na planilha, começando na linha 2 para ignorar o cabeçalho
-        nome_encontrado = False
+        
         for row in range(2, sheet_selecionada.max_row + 1): # Go through each line in excel
             name_cell = sheet_selecionada['A%s' % row].value  # percorre a toda linha da coluna "A - Nome"
             nif_cell = sheet_selecionada['H%s' % row].value   # percorre a toda linha da coluna "H - NIF" 
 
             # If the customer and the NIF exist, he says that the customer is already registered 
-            if cliente_existe(name_cell, nif_cell): #  
-                nome_encontrado = True
-                break
+            if _nif_existe(nif_cell): # verify if NIF exists  
+                if _cliente_existe(name_cell, nif_cell): # Verify is exists client associated with NIF
+                    return None
+
+            
             
         # if not exist, it return False 
 
-        if nome_encontrado:
-            return "O cliente já está registado."
+        
+            
         
 
 
