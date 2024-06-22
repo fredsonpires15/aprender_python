@@ -22,6 +22,7 @@ class ColetarDados:
         idade = input('Idade: ')
         sexo = input('Sexo [M/F]: ').upper()
         
+
         # validar Nome e NIF aqui mesmo
         while True:
             NIF = input('NIF: ')
@@ -60,13 +61,7 @@ class ColetarDados:
 
             
             
-        # if not exist, it return False 
-
-        
-            
-        
-
-
+        # if not exist, it return False
         identificacao = input('Identificação [PC/T.R]: ')
         n_identificacao = input('Nº de Identificação: ')
         data_de_validade = input('Data de validade: ')
@@ -108,3 +103,7 @@ class ColetarDados:
         # cadastro = CadastrarCliente(nome,idade,sexo,identificacao,n_identificacao,data_de_validade,estado_civil, NIF,pais,distrito,rua, codigo_postal, data_de_nasc,pais_de_nasc,telemovel,e_mail, saldo)
         
         return novo_cliente
+    
+    
+    
+

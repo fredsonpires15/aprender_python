@@ -10,7 +10,7 @@ def menu_login():
     print(' | [\033[1;36m 1 \033[0;0m] \033[1;31m Cadastrar Cliente\033[0;0m                 |')
     print(' | [\033[1;36m 2 \033[0;0m] \033[1;32m Login\033[0;0m                             |')
     print(f' |{"-"*42}|')  
-
+    
     
 def menu():
     print(f' |{"-"*42}|')

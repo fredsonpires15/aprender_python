@@ -2,7 +2,6 @@
 
 def validar_senha_usuario(nome, senha, nomes_validos, senhas_validas):
 
-
     #verificar ese nome está em nomes válidos
     if nome not in nomes_validos:
         print(" \033[1;31m Nome Inválido!!\033[0;0m")

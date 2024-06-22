@@ -20,7 +20,7 @@ class Usuario:
         return hash_obj.hexdigest()
     
     def nome_usuario(self,usuario):
-        return 
+        return usuario
 
     def verificar_senha(self, senha):
         #print(f'{self.hash_senha(senha)}=={self._hash_senha}')
@@ -46,6 +46,8 @@ else:
 #print("Senha errada:", senha_errada)    # Deve imprimir False
 print()
 print()
+
+
 
 
 

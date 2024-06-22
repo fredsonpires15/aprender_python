@@ -229,7 +229,7 @@ class Cliente:
         workbook = openpyxl.load_workbook(arquivo_excel)
 
         # Selecionar a planilha desejada
-        sheet_selecionada = workbook.active
+        sheet_selecionada = workbook.active 
 
         # Definir a função de comparação
         def cliente_existe(name_cell, nif_cell):
@@ -258,17 +258,7 @@ class Cliente:
         
     
     #Validar automaticamente o NIF ao registrar um novo cliente
-    def validaar_nif(self):
-        """
-        Validates the NIF (Portuguese citizen number) of the current instance.
-
-        This function calls the `validar_nif` function from the `Validar_nif.py` module with the current instance's NIF as an argument. It then returns the result of the `validar_nif` function.
-
-        Returns:
-            bool: True if the NIF is valid, False otherwise.
-        """
-        val = validar_nif(self.nif())
-        return val  
+    
     
     # create new accounts
     def create_account(self, client, type_account, initial_balance):
