@@ -157,7 +157,6 @@ class Cliente:
                     - 'Saldo' (float): The client's account balance.
         """
 
-        
         return dict(
             Nome=self.nome(),
             Idade=self.idade(),
@@ -201,22 +200,43 @@ class Cliente:
         - "[\033[92m Os dados dos clientes foram salvos com sucesso no _arquivo Excel.\033[0m]" if the data is successfully saved.
         """
         try:
-            df = pd.read_excel(arquivo_excel)  # Tenta carregar uma arquivo Excel existente
+            # Carregar o arquivo Excel
+            """ workbook = openpyxl.load_workbook(arquivo_excel)
+
+            # Verificar se a panilha "senhas_client" existe, caso contrario, criar uma nova
+        
+            if 'senhas_clint' not in workbook.sheetnames:
+                workbook.create_sheet('Dados_Cliente')
+            # Verificar se a panilha "senhas_client" existe, caso contrario, criar uma nova
+         """
+            # Criar o diretório se não existir
+            os.makedirs(os.path.dirname(arquivo_excel), exist_ok=True)
+            
+            if os.path.exists(arquivo_excel):
+                if 'Dados_Client' in pd.ExcelFile(arquivo_excel).sheet_names:
+                    df = pd.read_excel(arquivo_excel, sheet_name='Dados_Client')
+                else:
+                    df = pd.DataFrame(data=['Nome', 'Idade', 'Sexo', 'Identificação', 'N_Identificação', 'Data_de_Validade', 'Estado_Civil', 'NIF', 'País', 'Distrito', 'Rua', 'Codigo_Postal', 'Data_de_Nasc', 'País_de_Nasc', 'Telemóvel', 'Email', 'Saldo'])
+            else:
+                df = pd.DataFrame(data=['Nome', 'Idade', 'Sexo', 'Identificação', 'N_Identificação', 'Data_de_Validade', 'Estado_Civil', 'NIF', 'País', 'Distrito', 'Rua', 'Codigo_Postal', 'Data_de_Nasc', 'País_de_Nasc', 'Telemóvel', 'Email', 'Saldo'])
+      
+            
         except FileNotFoundError:
-            df = pd.DataFrame(columns=['Nome', 'Idade', 'Sexo', 'Identificação','N_Identificação','Data_de_Validade', 'Estado_Civil', 'NIF', 'País', 'Distrito', 'Rua','Codigo_Postal', 'Data_de_Nasc', 'País_de_Nasc', 'Telemóvel', 'Email', 'Saldo' ])
+            df = pd.DataFrame(data=['Nome', 'Idade', 'Sexo', 'Identificação','N_Identificação','Data_de_Validade', 'Estado_Civil', 'NIF', 'País', 'Distrito', 'Rua','Codigo_Postal', 'Data_de_Nasc', 'País_de_Nasc', 'Telemóvel', 'Email', 'Saldo' ])
 
     
         # coletar os dados do cliente 
-        cliente = self.guardar_dados_do_cliente()
+        cliente = self.guardar_dados_do_cliente() 
 
-        #criar um DataFrame com os dados do cliente
-        cliente_df = pd.DataFrame([cliente])
+        #criar um DataFrame com os dados do cliente  
+        cliente_df = pd.DataFrame([cliente]) 
 
-        #concatenar o novo cliente ao DataFrame existente
+        #concatenar o novo cliente ao DataFrame existente  
         df = pd.concat([df, cliente_df], ignore_index=True)
 
-        # Envair os dados para um ficheiro excel
-        df.to_excel(arquivo_excel, index=False)
+        # Envair os dados para um ficheiro excel 
+        with pd.ExcelWriter(arquivo_excel, mode='a', engine='openpyxl', if_sheet_exists='replace') as writer:
+            df.to_excel(writer, sheet_name='Dados_Client', index=False)
         
         print(" [\033[92m Os dados dos clientes foram salvos com sucesso no _arquivo Excel.\033[0m]")
     
@@ -246,22 +266,17 @@ class Cliente:
             if cliente_existe(name_cell, nif_cell): #  
                 nome_encontrado = True
                 break
-            
-        # if not exist, it return False 
 
-        
+        # if not exist, it return False 
         return nome_encontrado
-        
-                   
-        
-        
-        
-    
+                      
     #Validar automaticamente o NIF ao registrar um novo cliente
     
     
     # create new accounts
     def create_account(self, client, type_account, initial_balance):
+
+
         """
         Creates a new bank account for a given client with the specified account type and initial balance.
 

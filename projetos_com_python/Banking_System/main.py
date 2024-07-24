@@ -5,7 +5,7 @@ from time import sleep
 
 from cadastro_de_cliente import Cliente, CadastrarCliente
 from colorama import Fore, Back, Style
-from validar import validar_usuario
+from validar import validar_senha_usuario
 from estrutura import menu_login, menu, dados_cliente
 from Coletar_Dados import ColetarDados
 
@@ -15,6 +15,7 @@ from Coletar_Dados import ColetarDados
 def main():
 
     arquivo = "C:\\Users\\freds\\Desktop\\curso_de_programacao\\aprender_python\\Projetos_com_python\\Banking_System\\Banco_de_Dados.xlsx"
+    arquivo_senha = "C:\\Users\\freds\\Desktop\\curso_de_programacao\\aprender_python\\Projetos_com_python\\Banking_System\\senha.xlsx"
 
 
     nome_valido = 'Fredson'
@@ -52,6 +53,8 @@ def main():
             else:
                 print()
                 cliente.banco_de_dados(arquivo)
+                novo_cliente.regitar_client(arquivo_senha)
+                
             
             sleep(7)
             os.system('cls')
@@ -63,7 +66,7 @@ def main():
                 senha = input('Senha: ')
                 os.system('cls')
 
-                if  validar_usuario(nome,senha, nome_valido, senha_valida):
+                if  validar_senha_usuario(nome,senha, nome_valido, senha_valida):
                         while True:
         
                             menu()
