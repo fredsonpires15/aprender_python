@@ -27,7 +27,9 @@ print(semClienteDuplicado_DF) """
 #------------------------------------------------------------------------------------------------------#
 
 
-"""  vendas_DF = pd.read_excel('C:\\Users\\freds\\Desktop\\curso_de_programacao\\aprender_python\\python_3_basico_ao_avancado\\python-avancado\\Pandas_Analise-e-Tratamento\\arquivos\\Vendas_LEFT_JOIN.xlsx')
+"""  
+
+vendas_DF = pd.read_excel('C:\\Users\\freds\\Desktop\\curso_de_programacao\\aprender_python\\python_3_basico_ao_avancado\\python-avancado\\Pandas_Analise-e-Tratamento\\arquivos\\Vendas_LEFT_JOIN.xlsx')
 
 vendedores_DF = pd.read_excel('C:\\Users\\freds\\Desktop\\curso_de_programacao\\aprender_python\\python_3_basico_ao_avancado\\python-avancado\\Pandas_Analise-e-Tratamento\\arquivos\\Vendedores_LEFT_JOIN.xlsx')
 
@@ -52,12 +54,40 @@ del limparlinhas_vazias['Vendedor_Checagem']
 # print()
 # print(verificarVendas_DF)
 # print()
-# print(limparlinhas_vazias)  """
+# print(limparlinhas_vazias)        """
 
 
 #------------------------------------------------------------------------------------------------------#
 #                                              Merge Outer                                             #
 #------------------------------------------------------------------------------------------------------#
+
+vendasLoja1_DF = pd.read_excel('C:\\Users\\freds\\Desktop\\curso_de_programacao\\aprender_python\\python_3_basico_ao_avancado\\python-avancado\\Pandas_Analise-e-Tratamento\\arquivos\\Outer_Vendas_Loja1.xlsx')
+
+vendasLoja2_DF = pd.read_excel('C:\\Users\\freds\\Desktop\\curso_de_programacao\\aprender_python\\python_3_basico_ao_avancado\\python-avancado\\Pandas_Analise-e-Tratamento\\arquivos\\Outer_Vendas_Loja2.xlsx')
+
+#merge - une os DataFrames através de um denominador em comum
+verificarVendasLoja_DF = pd.merge(vendasLoja1_DF, vendasLoja2_DF, on=['Id Vendedor'], how='outer', suffixes=('Loja 1', 'Loja 2'))
+
+#deletar linhas vazias
+tratamentoDados_DF = verificarVendasLoja_DF.dropna()
+
+# deletar coluna  VendedorLoja 2 
+del tratamentoDados_DF['VendedorLoja 2']
+
+tratamentoDados_DF['TotalVendas'] = tratamentoDados_DF['VendasLoja 1'] + tratamentoDados_DF['VendasLoja 2']
+
+print(vendasLoja1_DF)
+print()
+print(vendasLoja2_DF)
+print()
+print(verificarVendasLoja_DF)
+print()
+print(tratamentoDados_DF)
+
+
+
+
+
 
 
 
